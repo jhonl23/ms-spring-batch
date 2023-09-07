@@ -9,6 +9,7 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.util.ResourceUtils;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
@@ -29,7 +30,9 @@ public class ItemReaderStep implements Tasklet {
 
         // STEP (1) - INICIO FLUJO
         List<Root> listRoot = new ArrayList<>();
-        Resource[] resources = resourcePatternResolver.getResources("classpath:static/files/*.xml");
+        //Resource[] resources = resourcePatternResolver.getResources("classpath:static/files/*.xml");
+
+        Resource[] resources = resourcePatternResolver.getResources(ResourceUtils.getURL("classpath:static/files/*.xml").getPath());
 
         for (Resource resource: resources) {
             File xmlFile = resource.getFile();
