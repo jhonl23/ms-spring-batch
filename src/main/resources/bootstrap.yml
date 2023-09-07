@@ -11,10 +11,13 @@ spring:
       initialize-schema: ALWAYS
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/testdb
+    url: jdbc:mysql://mysqldb:3306/testdb
     username: test-user
     password: password
   jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: none
     generate-ddl: true
