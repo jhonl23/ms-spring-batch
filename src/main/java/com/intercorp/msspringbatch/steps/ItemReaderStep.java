@@ -30,9 +30,7 @@ public class ItemReaderStep implements Tasklet {
 
         // STEP (1) - INICIO FLUJO
         List<Root> listRoot = new ArrayList<>();
-        //Resource[] resources = resourcePatternResolver.getResources("classpath:static/files/*.xml");
-
-        Resource[] resources = resourcePatternResolver.getResources(ResourceUtils.getURL("classpath:static/files/*.xml").getPath());
+        Resource[] resources = resourcePatternResolver.getResources("file:///C:/xmls/*.xml");
 
         for (Resource resource: resources) {
             File xmlFile = resource.getFile();
