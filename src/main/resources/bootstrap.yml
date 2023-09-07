@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ms-spring-batch
+  batch:
+    job:
+      enabled: true
+    jdbc:
+      initialize-schema: ALWAYS
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/testdb
+    username: test-user
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+  kafka:
+    topic1: event-ms-one-topic
+    topic2: event-ms-two-topic
+    topic3: event-ms-batch-one-topic
+    topic4: event-ms-batch-two-topic
+    consumer:
+      bootstrap-servers: localhost:9092
+      group_id: event-ms-one-consumer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+input:
+  folder: classpath:static/files
