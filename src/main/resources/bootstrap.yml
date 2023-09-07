@@ -12,8 +12,8 @@ spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/testdb
-    username: root
-    password: mauFJcuf5dhRMQrjj
+    username: test-user
+    password: password
   jpa:
     hibernate:
       ddl-auto: none
